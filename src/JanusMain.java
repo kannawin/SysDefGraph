@@ -1,6 +1,4 @@
-import java.io.File;
 import java.io.IOException;
-import java.lang.instrument.Instrumentation;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -9,7 +7,6 @@ import java.util.ArrayList;
 import com.tinkerpop.blueprints.*;
 import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
 
-import net.sourceforge.sizeof.SizeOf;
 
 public class JanusMain
 {
@@ -44,10 +41,7 @@ public class JanusMain
 			
 			//Prints out memory used after edges are input into the graph
 			graphSizes[3] = Runtime.getRuntime().freeMemory();
-			
-			SizeOf.skipStaticField(true);
-			SizeOf.setMinSizeToLog(10);
-			
+
 			
 			graph = GraphFactory.getGraph();
 			
@@ -70,7 +64,7 @@ public class JanusMain
 			
 			
 			
-			ArrayList<Vertex> nullArray = new ArrayList<Vertex>();
+			//ArrayList<Vertex> nullArray = new ArrayList<Vertex>();
 			
 			//get a storage controller
 			//nullArray.add(graph.getVertex("53f9a706b4ab4be2b99625f0352e2ba1"));

@@ -45,12 +45,11 @@ public class JanusMain
 			
 			graph = GraphFactory.getGraph();
 			
-			//test 2: find the shortest path between two known nodes
+			//test 2: find the shortest path between two known nodes			
 			String startNode = "29ff96320eb348e48f7293e96bf8458e";		//PSU
 			String endNode = "48453f8815c94df1a96753c326ad500d";		//Storage Disk
 			
-			//System.out.println(graph.getVertex(endNode).getProperty("Label").toString());
-			
+
 			testTimers.add(System.nanoTime());
 			Traversal.logicalPath(graph, startNode, endNode);
 			testTimers.add(System.nanoTime());

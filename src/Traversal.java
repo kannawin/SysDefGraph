@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import com.tinkerpop.blueprints.*;
 
@@ -97,13 +98,19 @@ public class Traversal
 				next = e.getVertex(Direction.OUT);
 				break;
 			}
-			
+			boolean accept = false;
 			//sets the node to iterate from next
-			node = next;
-			if(!next.getProperty("Label").toString().equals(root))
+			try {
+				accept = next.getEdges(Direction.IN, "contains").iterator().next().getVertex(Direction.OUT).getId().toString().equals(null);
+			}
+			catch(NoSuchElementException e) {
+				accept = false;
+			}
+			if(!next.getProperty("Label").toString().equals(root) && !accept)
 			{
+				node = next;
 				path.add(next);
-			}else {
+			}else if(next.getProperty("Label").toString().equals(root)) {
 				path.add(next);
 				flag = false;
 			}

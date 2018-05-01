@@ -16,7 +16,7 @@ public class JanusMain
 	{
 		
 		
-		for(int z = 0; z < 50; z++) {
+		for(int z = 0; z < 1; z++) {
 			Graph graph = new TinkerGraph();
 			
 			ArrayList<Long> testTimers = new ArrayList<Long>();
@@ -61,6 +61,12 @@ public class JanusMain
 			Traversal.containedComponentsByType(graph.getVertex("53f9a706b4ab4be2b99625f0352e2ba1"), graph);
 			testTimers.add(System.nanoTime());
 			
+			//System.out.println(Traversal.containedComponents(graph.getVertex("53f9a706b4ab4be2b99625f0352e2ba1")).size());
+			
+			
+			//testTimers.add(System.nanoTime());
+			Traversal.containedComponents(graph.getVertex("53f9a706b4ab4be2b99625f0352e2ba1"));
+			//testTimers.add(System.nanoTime());
 			
 			
 			//ArrayList<Vertex> nullArray = new ArrayList<Vertex>();
